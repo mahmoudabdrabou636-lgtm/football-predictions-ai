@@ -1,0 +1,32 @@
+[project]
+name = "football-predictions-ai"
+version = "0.1.0"
+description = "AI-powered football match prediction and analysis platform"
+authors = [
+    {name = "Football Predictions AI Team"}
+]
+requires-python = ">=3.12"
+
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "pydantic",
+    "sqlalchemy",
+    "psycopg2-binary",
+    "pandas",
+    "numpy",
+    "scikit-learn",
+    "lightgbm",
+    "catboost",
+    "xgboost",
+    "mlflow",
+    "python-dotenv"
+]
+
+[tool.pytest.ini_options]
+testpaths = [
+    "tests"
+]
+
+[tool.ruff]
+line-length = 100
