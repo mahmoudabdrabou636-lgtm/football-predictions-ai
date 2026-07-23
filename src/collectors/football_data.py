@@ -5,12 +5,25 @@ from .base_collector import BaseCollector
 
 class FootballDataCollector(BaseCollector):
 
-    def __init__(self):
-        self.base_url = ""
+    def __init__(self, api_key):
+        self.api_key = api_key
+        self.base_url = "https://api.football-data.org/v4"
 
     def fetch(self):
-        print("Fetching football data...")
-        return []
+        headers = {
+            "X-Auth-Token": self.api_key
+        }
+
+        response = requests.get(
+            f"{self.base_url}/matches",
+            headers=headers
+        )
+
+        if response.status_code == 200:
+            return response.json()
+
+        print(f"Error: {response.status_code}")
+        return {}
 
     def save(self, data):
-        print(f"Saving {len(data)} records...")
+        print("Data received successfully.")
