@@ -1,10 +1,15 @@
-from config import PROJECT_NAME
+from src.collectors.football_data import FootballDataCollector
+
+API_KEY = "ضع الـ API الجديد هنا"
 
 def main():
-    print("=" * 40)
-    print(PROJECT_NAME)
-    print("Football Prediction System Started")
-    print("=" * 40)
+    collector = FootballDataCollector(API_KEY)
+
+    data = collector.fetch()
+
+    if data:
+        print("Connection Successful")
+        print(data)
 
 if __name__ == "__main__":
     main()
