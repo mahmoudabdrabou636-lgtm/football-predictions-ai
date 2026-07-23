@@ -26,6 +26,8 @@ services:
       - database
     ports:
       - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql://fpai_user:fpai_password@database:5432/football_predictions
     env_file:
       - .env
 
