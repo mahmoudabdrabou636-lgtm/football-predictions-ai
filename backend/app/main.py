@@ -1,10 +1,13 @@
 from fastapi import FastAPI
+from database.connection import engine, Base
 
 app = FastAPI(
     title="Football Predictions AI",
     description="AI-powered football match prediction and analysis platform",
     version="0.1.0"
 )
+
+Base.metadata.create_all(bind=engine)
 
 
 @app.get("/")
