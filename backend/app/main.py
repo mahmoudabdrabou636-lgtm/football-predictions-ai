@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from database.connection import engine, Base
+from backend.app.database.connection import engine, Base
 
 app = FastAPI(
     title="Football Predictions AI",
